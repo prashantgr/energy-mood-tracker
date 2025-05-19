@@ -1,0 +1,26 @@
+.voice-container {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+    &:disabled {
+      background-color: #95a5a6;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}

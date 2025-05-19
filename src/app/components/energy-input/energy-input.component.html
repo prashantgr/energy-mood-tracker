@@ -1,0 +1,48 @@
+<div class="energy-input-card">
+  <h2>Daily Check-In</h2>
+
+  <!-- Mood sentence -->
+  <label for="moodText">How are you feeling?</label>
+  <textarea id="moodText" [(ngModel)]="moodText" placeholder="I feel a bit drained today but trying to stay focused."></textarea>
+<br>
+  <!-- Energy -->
+  <label>Energy Level:</label>
+  <div class="option-group">
+    <button [class.active]="energy === 'Low'" (click)="energy = 'Low'">Low</button>
+    <button [class.active]="energy === 'Medium'" (click)="energy = 'Medium'">Medium</button>
+    <button [class.active]="energy === 'High'" (click)="energy = 'High'">High</button>
+  </div>
+
+  <!-- Focus -->
+  <label>Focus:</label>
+  <div class="option-group">
+    <button [class.active]="focus === 'Distracted'" (click)="focus = 'Distracted'">Distracted</button>
+    <button [class.active]="focus === 'Moderate'" (click)="focus = 'Moderate'">Moderate</button>
+    <button [class.active]="focus === 'Focused'" (click)="focus = 'Focused'">Focused</button>
+  </div>
+
+  <!-- Stress -->
+  <label>Stress:</label>
+  <div class="option-group">
+    <button [class.active]="stress === 'Low'" (click)="stress = 'Low'">Low</button>
+    <button [class.active]="stress === 'Medium'" (click)="stress = 'Medium'">Medium</button>
+    <button [class.active]="stress === 'High'" (click)="stress = 'High'">High</button>
+  </div>
+
+  <button (click)="submitEntry()" [disabled]="submitting">
+    {{ submitting ? 'Submitting...' : 'Submit Entry' }}
+  </button>
+
+  <p class="success" *ngIf="submitted">✅ Submitted!</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+<div *ngIf="moodCategory" class="mood-category-card" [style.borderLeftColor]="moodCategory.color">
+  <div class="emoji">{{ moodCategory.emoji }}</div>
+  <div class="info">
+    <h3>{{ moodCategory.label }}</h3>
+    <p>{{ moodCategory.description }}</p>
+  </div>
+</div>
+
+
+</div>

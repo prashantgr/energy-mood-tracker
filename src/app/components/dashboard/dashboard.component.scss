@@ -1,0 +1,94 @@
+/* Container styles */
+:host {
+  display: block;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+/* Header */
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Loading & Error messages */
+div[ng-reflect-ng-if="true"] {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+div.error {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+}
+
+thead {
+  background-color: #34495e;
+  color: white;
+}
+
+thead th {
+  padding: 12px 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+tbody td {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+/* Special icons */
+span[style*="color: red"] {
+  font-size: 1.25rem;
+  cursor: default;
+}
+
+span[style*="color: green"] {
+  font-size: 1.25rem;
+  cursor: default;
+}
+
+/* No data message */
+div.no-data {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-top: 1rem;
+}

@@ -1,0 +1,24 @@
+<div class="voice-container">
+  <h2>Voice Sentiment Analyzer</h2>
+
+  <button (click)="toggleRecording()">
+    🎙️ {{ recording ? 'Stop Listening' : 'Start Voice Input' }}
+  </button>
+
+  <div *ngIf="transcript && !sentimentLoading">
+    <p><strong>You said:</strong> {{ transcript }}</p>
+  </div>
+
+  <div *ngIf="sentimentLoading">
+    <p>⏳ Analyzing sentiment...</p>
+  </div>
+
+  <div *ngIf="!sentimentLoading && sentimentResult">
+    <p><strong>Sentiment:</strong> {{ sentimentResult }}</p>
+    <div *ngIf="confidence">
+      <p>👍 Positive: {{ confidence.positive | percent:'1.0-2' }}</p>
+      <p>😐 Neutral: {{ confidence.neutral | percent:'1.0-2' }}</p>
+      <p>👎 Negative: {{ confidence.negative | percent:'1.0-2' }}</p>
+    </div>
+  </div>
+</div>
