@@ -36,8 +36,8 @@ export class EnergyInputComponent {
 
     this.sentimentService.analyzeSentiment(this.moodText).subscribe({
       next: res => {
-        const sentiment = res.sentiment;
-        const confidence = res.confidenceScores;
+     const sentiment = res.documents[0].sentiment;
+      const confidence = res.documents[0].confidenceScores;
 
         this.moodCategory = this.getMoodCategory(
           sentiment,
