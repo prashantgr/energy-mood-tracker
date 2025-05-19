@@ -1,5 +1,7 @@
 # EnergyMoodTracker
 
+AI tool that takes in text or a simple form input from employees describing their current energy level (or selects from options), and then the system infers mood based on patterns.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
 ## Development server
