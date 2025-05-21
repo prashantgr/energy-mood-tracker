@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EntryService } from '../../services/entry.service';
 import { SentimentService } from '../../services/sentiment.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-energy-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,HttpClientModule],
   templateUrl: './energy-input.component.html',
   styleUrls: ['./energy-input.component.scss']
 })
@@ -28,13 +29,23 @@ export class EnergyInputComponent {
     private sentimentService: SentimentService
   ) {}
 
+   private getRandomEmployeeId(): number {
+    return Math.floor(Math.random() * 11) + 1000; // 1000 to 1010 inclusive
+  }
+
   submitEntry() {
     this.submitting = true;
     this.submitted = false;
     this.error = '';
     this.moodCategory = null;
 
-    this.sentimentService.analyzeSentiment(this.moodText).subscribe({
+    // Use energy, focus, and stress if moodText is empty or null
+    const inputText = this.moodText?.trim()
+    ? this.moodText
+    : `I'm currently feeling ${this.energy} on energy, ${this.focus} in focus, and my stress level is ${this.stress}.`;
+
+
+    this.sentimentService.analyzeSentiment(inputText).subscribe({
       next: res => {
      const sentiment = res.documents[0].sentiment;
       const confidence = res.documents[0].confidenceScores;
@@ -44,18 +55,19 @@ export class EnergyInputComponent {
           this.energy,
           this.focus,
           this.stress,
-          this.moodText
+          inputText
         );
 
         const entry = {
           date: new Date(),
-          moodText: this.moodText,
+          moodText: inputText,
           sentiment,
           confidence,
           energy: this.energy,
           focus: this.focus,
           stress: this.stress,
-          moodCategory: this.moodCategory
+          moodCategory: this.moodCategory,
+          EmployeeId: this.getRandomEmployeeId(),
         };
 
         this.entryService.submit(entry).subscribe({

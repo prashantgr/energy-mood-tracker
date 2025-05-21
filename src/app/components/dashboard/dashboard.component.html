@@ -9,28 +9,32 @@
     <tr>
       <th>Employee ID</th>
       <th>Date</th>
-      <th>Positive</th>
+     <!-- <th>Positive</th>
       <th>Neutral</th>
       <th>Negative</th>
-      <th>Total</th>
+       <th>Total</th> -->
+      <th>Sentiment</th> 
       <th>Address Concerns</th>
       <th>Celebrate Positives</th>
+      <th>Mood Category</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of sentimentData">
       <td>{{ row.EmployeeId }}</td>
-       <td>{{ row.EntryDate | date }}</td> 
-      <td>{{ row.PositiveCount }}</td>
+      <td>{{ row.EntryDate | date }}</td> 
+        <!--  <td>{{ row.PositiveCount }}</td>
       <td>{{ row.NeutralCount }}</td>
       <td>{{ row.NegativeCount }}</td>
-      <td>{{ row.TotalEntries }}</td>
+   <td>{{ row.TotalEntries }}</td> -->
+        <td>{{ row.Sentiment }}</td>
       <td>
         <span *ngIf="row.AddressConcernsFlag === 1" style="color: red;">⚠️</span>
       </td>
       <td>
         <span *ngIf="row.CelebratePositivesFlag === 1" style="color: green;">🎉</span>
       </td>
+      <td>{{ row.MoodCategory }}</td>
     </tr>
   </tbody>
 </table>

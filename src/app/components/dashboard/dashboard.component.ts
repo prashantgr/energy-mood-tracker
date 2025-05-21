@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SentimentSummaryService, SentimentSummary } from '../../services/sentiment-summary.service';
 import { CommonModule } from '@angular/common'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  imports: [CommonModule] 
+  imports: [CommonModule, HttpClientModule] 
 })
 export class DashboardComponent implements OnInit {
   sentimentData: SentimentSummary[] = [];

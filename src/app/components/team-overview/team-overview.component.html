@@ -1,1 +1,13 @@
-<p>team-overview works!</p>
+<div class="chart-wrapper">
+  <canvas baseChart
+    [data]="chartData"
+    [type]="chartType"
+    [options]="chartOptions"
+    *ngIf="chartReady">
+  </canvas>
+</div>
+
+
+<ng-template #loading>
+  <p>Loading mood data...</p>
+</ng-template>

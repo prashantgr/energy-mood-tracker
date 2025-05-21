@@ -1,0 +1,16 @@
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 1000px;
+  width: 90%;
+
+  canvas {
+    max-width: 100%;
+  }
+}
