@@ -17,8 +17,8 @@ export class SentimentService {
   private http = inject(HttpClient);
 
   // ⚠️ Secure these in environment.ts for production builds
-  private endpoint = 'https://ai-moodtracker-instance.cognitiveservices.azure.com/';
-  private apiKey = 'Ezh3I4hS1UV6lROmKoGcsrACU0regN89dXK6Jca9Mybm6DjkyXqCJQQJ99BEAC5RqLJXJ3w3AAAaACOGrzcb';
+  private endpoint = 'https://youAPI.cognitiveservices.azure.com/';
+  private apiKey = '';
   private apiUrl = `${this.endpoint}text/analytics/v3.1/sentiment`;
 
   analyzeSentiment(text: string): Observable<any> {

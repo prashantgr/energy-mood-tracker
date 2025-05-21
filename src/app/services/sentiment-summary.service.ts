@@ -26,7 +26,8 @@ export class SentimentSummaryService {
   private http = inject(HttpClient);
 
   // Replace with your Logic App or API endpoint URL
-  private summaryUrl = 'https://prod-144.westeurope.logic.azure.com:443/workflows/'
+  private summaryUrl = '';
+
   getSentimentSummary(): Observable<SentimentSummary[]> {
     return this.http.get<SentimentSummary[]>(this.summaryUrl);
   }
