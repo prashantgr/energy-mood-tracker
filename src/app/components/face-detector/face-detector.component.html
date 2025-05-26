@@ -1,0 +1,26 @@
+<br>
+<input type="file" (change)="onFileSelected($event)" accept="image/*" />
+
+<div class="image-container" *ngIf="imageUrl">
+  <img [src]="imageUrl" alt="Detected Face" />
+  <div
+    *ngFor="let face of faces"
+    class="face-box"
+    [ngStyle]="getBoxStyle(face)"
+  ></div>
+</div>
+
+<div *ngIf="faces.length > 0">
+  <div *ngFor="let face of faces" class="detected-face-info">
+    <p>Gender: {{ face.faceAttributes.gender }}</p>
+    <p>Age: {{ face.faceAttributes.age }}</p>
+    <p>Emotions:</p>
+    <ul>
+      <li *ngFor="let emotion of emotionKeys(face.faceAttributes.emotion)">
+        {{ emotion }}: {{ face.faceAttributes.emotion[emotion] | number: '1.2-2' }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+

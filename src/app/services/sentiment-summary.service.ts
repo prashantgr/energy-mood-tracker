@@ -17,6 +17,7 @@ export interface SentimentSummary {
   WeekNumber: number;
   MoodCategory: string;
   Sentiment: string;
+  Suggestion: string;
 }
 
 @Injectable({
@@ -26,8 +27,7 @@ export class SentimentSummaryService {
   private http = inject(HttpClient);
 
   // Replace with your Logic App or API endpoint URL
-  private summaryUrl = '';
-
+  private summaryUrl = '';  
   getSentimentSummary(): Observable<SentimentSummary[]> {
     return this.http.get<SentimentSummary[]>(this.summaryUrl);
   }

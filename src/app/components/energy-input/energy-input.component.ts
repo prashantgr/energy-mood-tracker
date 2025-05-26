@@ -67,6 +67,7 @@ export class EnergyInputComponent {
           focus: this.focus,
           stress: this.stress,
           moodCategory: this.moodCategory,
+          Suggestion: this.moodCategory.description,
           EmployeeId: this.getRandomEmployeeId(),
         };
 

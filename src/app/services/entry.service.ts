@@ -9,8 +9,7 @@ export class EntryService {
   private http = inject(HttpClient);
 
    // Replace with your actual Logic App URL
-  private logicAppUrl ='https://prod-136.westeurope.logic.azure.com:443/workflows'
-
+  private logicAppUrl ='';
   submit(entry: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(this.logicAppUrl, entry, { headers });
